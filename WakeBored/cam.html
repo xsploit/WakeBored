@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cams</title>
+  <link rel="stylesheet" href="app.css">
+  <script>
+    const RSS_URL = `https://www.drivebc.ca/api/events/region/kootenays?format=rss`;
+
+    var url = 'https://www.drivebc.ca/api/events/region/kootenays?format=rss';
+
+/*     https://www.drivebc.ca/mobile/pub/webcams/SouthernInterior3.html */
+/* https://images.drivebc.ca/bchighwaycam/pub/html/www/index-SouthernInterior.html */
+
+    function getImages() {
+      fetch('https://www.drivebc.ca/mobile/pub/webcams/SouthernInterior3.html')
+        .then(function (response) {
+          return response.text();
+        })
+        .then(function (text) {
+          imageLink = 'https://images.drivebc.ca/bchighwaycam/pub/cameras/5.jpg'
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(text, 'text/html');
+          var images = doc.querySelectorAll('img');
+          var imageLinks = [];
+          for (var i = 0; i < images.length; i++) {
+            var image = images[i];
+            var imageLink = image.src;
+            if (imageLink.includes('.jpg')) {
+              imageLinks.push('https://images.drivebc.ca/bchighwaycam/pub/cameras' + imageLink.split('/tn')[1]);
+            }
+          }
+          var imageIndex = 0;
+          var image = document.createElement('img');
+          image.src = imageLinks[imageIndex];
+          var container = document.createElement('div');
+          container.style.float = 'center';
+          container.appendChild(image);
+          document.body.appendChild(container);
+          var intervalId;
+          var startButton = document.createElement('button');
+          startButton.innerHTML = 'Start';
+          startButton.addEventListener('click', function () {
+            intervalId = setInterval(function () {
+              imageIndex++;
+              if (imageIndex >= imageLinks.length) {
+                imageIndex = 0;
+              }
+              image.src = imageLinks[imageIndex];
+            }, 10000);
+          });
+          container.appendChild(startButton);
+          var stopButton = document.createElement('button');
+          stopButton.innerHTML = 'Stop';
+          stopButton.addEventListener('click', function () {
+            clearInterval(intervalId);
+          });
+          container.appendChild(stopButton);
+        });
+      getFeed()
+    }
+    getImages();
+    function getFeed() {
+      fetch(url).then(function (response) {
+        return response.text();
+      }).then(function (text) {
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(text, 'text/xml');
+        var items = xmlDoc.getElementsByTagName('item');
+        var results = document.createElement('div');
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+          var title = item.getElementsByTagName('title')[0].textContent;
+          var link = item.getElementsByTagName('link')[0].textContent;
+          var description = item.getElementsByTagName('description')[0].textContent;
+          var result = document.createElement('div');
+          result.innerHTML = '<center><div><a href="' + link + '">' + title + '</a><br><p>' + description + '</p></div></center>';
+          results.appendChild(result);
+        }
+        document.body.appendChild(results);
+      });
+    }
+  </script>
+  <style>
+    body {
+      color: rgb(10, 10, 10);
+
+    }
+
+    img {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+      margin: auto;
+      justify-content: center;
+      max-width: 50%;
+      box-shadow: 0 0 3px #b0bec5;
+      
+    }
+
+    article {
+
+      background: #f1efec;
+      border-radius: 4px;
+      overflow: hidden;
+      font: 12px/1.1 system-ui, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0c0c0c;
+
+    }
+
+    :hover,
+    :focus {
+      color: #2196f3;
+    }
+
+
+    h2 {
+      padding: 1rem 1rem;
+      margin: 0;
+    }
+
+    p {
+      margin: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 2rem;
+      background: inherit;
+      color: rgb(248, 8, 8);
+    }
+
+
+    div {
+
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+      margin: 5px;
+      justify-content: center;
+
+    }
+  </style>
+</head>
+
+<body>
+  <!--     <img src="" id="image1" style="max-width: 1000px;">
+    <button id="pl" onclick="changeImg()">next</button>
+    <button id="pa" onclick="stop()">Pause</button>
+    <button id="pa" onclick="start()">Start</button> -->
+</body>
+
+</html>

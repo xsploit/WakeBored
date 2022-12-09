@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@600&family=Open+Sans:ital,wght@1,500&display=swap');
+* {
+  box-sizing: border-box;
+
+}
+body{
+  min-width: 299px;
+}
+
+body:hover,
+:focus {
+
+    box-sizing: border-box;
+    
+  }
+
+  #blogList {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+   
+  
+  }
+
+  #blogContent {
+    float: center;
+    width: 90%;
+    min-height: 75px;
+    outline: none;
+    resize: none;
+    border: 1px solid grey;
+
+    font-family: 'Montserrat', sans-serif;
+
+  }
+
+  #blogTitle{
+    margin-top: 5px;
+    float: center;
+    width: 50%;
+    min-height: 20px;
+    outline: none;
+    resize: none;
+    border: 1px solid grey;
+     color:goldenrod;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  }
+  label{
+    font-size: 1rem;
+    color: rgb(247, 245, 239);
+  }
+  #weather.card-title{
+margin: 0px;
+  }
+
+  div {
+color: rgb(7, 7, 7);
+   font-size: 1rem;
+   
+  }
+  h1{
+    
+    color: rgb(15, 15, 15);
+    font-size: 3rem;
+    font-family: 'Lato', sans-serif;
+  }
+  h2{
+    color: rgb(15, 15, 15);
+    font-size: 2rem;
+  }
+  h3{
+    color: rgb(15, 15, 15);
+    font-size: 1rem;
+  }
+
+  h6{
+    color: rgb(27, 27, 26);
+    font-size: 1rem;
+  }
+
+  p[contenteditable="true"] {
+    font: 100;
+    font-size: 1.5rem;
+    color: rgb(15, 15, 15);
+  }
+p.card-text[contenteditable="true"]{
+  font-size: 1.5rem;
+}
+  h2{
+    color: rgb(15, 15, 15);
+    }
+    #console,p{
+    animation:blinking 10.0s infinite;
+    font-size: 20px;
+    }
+    @keyframes blinking{
+    30%{   color: red;   }
+    47%{   color: rgb(7, 241, 18); }
+    62%{   color: gold; }
+    97%{   color:orange; }
+    100%{  color: rgb(255, 4, 201);   }
+    }
+    .text-center {
+      text-align: center !important;
+  }
+
+  div.card.text-center{
+  
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  }
+.todo{
+ 
+  float: right!important;
+  color: #8d8d88;
+}
+
+
+  .card {
+    
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+      margin:5px ;
+  }
+  *, *::before, *::after {
+      box-sizing: border-box;
+  }
+  user agent stylesheet
+  div {
+      display: block;
+  }
+  .card-header:first-child {
+    
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+.card-header {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.card.text-center{
+border: 1px solid rgb(158, 147, 147);
+}
+
+
+
+div#links{
+
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  display: inline-block;
+  padding: 1rem ;
+font-size: 1rem;
+text-align: center;
+margin: 1rem;
+border: 1px solid rgba(91, 2, 2, 0.125);
+width: 80;
+height: 100%;
+font-size: 1rem;
+}
+
+img{
+  width: auto;
+  height: 100%;
+
+  border-bottom: 1px solid #f5cb22;
+  text-align: center;
+  transition: all 0.25s;
+}
+
+img:hover{
+
+  border: 1px solid black;
+  transition: all 0.65s;
+  transform: rotateY(360deg);
+}
+div#links:hover{
+  border: 1px solid black;
+  transition: all 0.65s;
+  transform: rotateY(360deg);
+}
+
+.bs,#bs{
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  float: left;
+  color: rgb(255, 255, 255);
+ 
+  padding: 1px;
+  border-radius: 5%;
+font-size: 0.3rem;
+
+width: 4.2rem;
+height: 4.2rem;
+  }

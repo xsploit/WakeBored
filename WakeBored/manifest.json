@@ -1,0 +1,27 @@
+{  
+  "name": "wakebored",  
+  "short_name": "wkbrd",  
+  "description": "A all in one Dashboard",  
+  "start_url": "/index.html",  
+  "icons": [  
+    {  
+      "src": "maskable_icon.png",  
+      "sizes": "36x36",  
+      "type": "image/png"  
+    },  
+    {  
+      "src": "maskable_icon_x48.png",  
+      "sizes": "48x48",  
+      "type": "image/png"  
+    },  
+    {  
+      "src": "maskable_icon.png",  
+      "sizes": "512x512",  
+      "type": "image/png"  
+    }  
+  ],  
+  "theme_color": "#111111",  
+  "background_color": "#FFFFFF",  
+  "display": "fullscreen",  
+  "orientation": "portrait"  
+}
